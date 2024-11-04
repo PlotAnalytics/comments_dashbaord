@@ -5,6 +5,8 @@ import psycopg2.pool
 import pandas as pd
 import plotly.express as px
 import plotly.io as pio
+import logging
+logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
 
@@ -62,6 +64,7 @@ def fetch_comments_per_1k_views():
 
 @app.route('/')
 def index():
+    logging.info("Serving index page")
     # Chart 1: Daily Deleted Comment Counts by Sponsor (Bar Chart)
     df1 = fetch_daily_deleted_comments()
     fig1 = px.bar(

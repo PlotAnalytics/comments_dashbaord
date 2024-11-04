@@ -22,6 +22,7 @@ steps:
       - 'us-central1'
       - '--allow-unauthenticated'
       - '--port=8080'
+      - '--timeout=900s'  # Set timeout to 900 seconds (maximum)
 
 images:
   - 'gcr.io/$PROJECT_ID/comments_dashboard'
