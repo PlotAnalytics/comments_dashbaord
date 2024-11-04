@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Data Visualizations</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .chart-container { margin: 20px auto; width: 90%; }
+    </style>
+</head>
+<body>
+    <h1>Data Visualizations</h1>
+
+    <div class="chart-container">
+        <h2>Chart 1: Daily Deleted Comment Counts by Sponsor (Bar Chart)</h2>
+        {{ chart1 | safe }}
+    </div>
+
+    <div class="chart-container">
+        <h2>Chart 2: Daily Deleted Comment Counts by Sponsor (Line Chart)</h2>
+        {{ chart2 | safe }}
+    </div>
+
+    <div class="chart-container">
+        <h2>Chart 3: Deleted Comments per 1,000 Views by Sponsor</h2>
+        {{ chart3 | safe }}
+    </div>
+</body>
+</html>
