@@ -4,6 +4,7 @@ FROM python:3.10-slim
 # Set environment variables to prevent Python from writing .pyc files and buffering stdout and stderr
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV FLASK_APP=app.py  
 
 # Set working directory
 WORKDIR /app
@@ -22,4 +23,4 @@ COPY . .
 EXPOSE 8080
 
 # Command to run the Flask app
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080", "--app=app"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
