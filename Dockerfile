@@ -21,8 +21,6 @@ COPY . .
 # Expose port 8080 for Cloud Run
 EXPOSE 8080
 
-# Set the Flask environment variable to point to the app
-ENV FLASK_APP=app:app
 
 # Command to run the Flask app
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
+CMD ["flask", "app.py"]
