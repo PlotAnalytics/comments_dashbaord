@@ -5,21 +5,17 @@ FROM python:3.10-slim
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# Set working directory
+# Set working directory inside the container
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y libpq-dev gcc && apt-get clean && rm -rf /var/lib/apt/lists/*
+# Copy the contents of the current directory (.) to /app in the container
+COPY . /app
 
-# Copy requirements file and install dependencies
-COPY requirements.txt .
+# Install dependencies
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the application
-COPY . .
 
 # Expose port 8080 for Cloud Run
 EXPOSE 8080
 
-# Directly run the Python application
+# Directly run your Python app
 CMD ["python", "app.py"]
