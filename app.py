@@ -8,7 +8,7 @@ import plotly.io as pio
 import logging
 logging.basicConfig(level=logging.INFO)
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="app/templates", static_folder="app/static")
 
 # Database connection setup
 DB_HOST =  "34.93.195.0"
