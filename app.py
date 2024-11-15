@@ -51,6 +51,7 @@ def fetch_comments_per_1k_views():
                     JOIN sponsor s ON c.sponsor_id = s.id
                     JOIN video v ON s.id = v.sponsor_id
                     JOIN statistics st ON v.id = st.video_id
+                    WHERE st.posted_date >= '2024-10-19'
                     GROUP BY s.name
                     HAVING SUM(st.views_total) > 0
                 """)
@@ -61,6 +62,7 @@ def fetch_comments_per_1k_views():
     except Exception as e:
         print(f"Error fetching data: {e}")
         return pd.DataFrame()
+
 
 @app.route('/')
 def index():
